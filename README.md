@@ -1,0 +1,1 @@
+# ninja-forms-editor-permissions
