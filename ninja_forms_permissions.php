@@ -2,13 +2,12 @@
 /*
 Plugin Name: Ninja Forms Permissions
 Plugin URI: http://rapidweb.biz
-Description: Give Editors access to the Ninja Forms menu in their dashboard area.
+Description: Description goes here
 Version: 1.0.0
 Author: Rapid Web Ltd
 Author URI: http://rapidweb.biz
-
-Based on dmajwool work here: https://wordpress.org/support/topic/works-but-there-is-capabilities-problems However, packaged it up with shorter function names
 */
+
 // To give Editors access to the ALL Forms menu
 function ninja_forms_editor_permissions( $capabilities ) {
     $capabilities = "edit_pages";
