@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Ninja Forms Permissions
+Plugin Name: Ninja Forms Editor Permissions
 Plugin URI: http://rapidweb.biz
 Description: Give Editors access to the Ninja Forms menu in their dashboard area.
 Version: 1.0.0
