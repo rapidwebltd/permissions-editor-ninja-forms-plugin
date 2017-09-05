@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Ninja Forms Permissions
+Plugin Name: Permissions Editor for Ninja Forms 
 Plugin URI: http://rapidweb.biz
 Description: Description goes here
 Version: 1.0.0
