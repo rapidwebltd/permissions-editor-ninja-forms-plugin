@@ -10,11 +10,9 @@ Author URI: http://rapidweb.biz
 
 function penf_get_caps() {
     return ['penf_dashboard' => 'dashboard',
-            'penf_add' => 'add',
             'penf_submissions' => 'submissions',
             'penf_import' => 'import',
             'penf_settings' => 'settings',
-            'penf_add_ons' => 'add ons',
             'penf_view_menu' => 'view menu'];
 }
 
@@ -57,35 +55,38 @@ function ninja_forms_editor_permissions( $capabilities ) {
     $capabilities = "read";
     return $capabilities;
 }
-add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'ninja_forms_editor_permissions' );
-add_filter( 'ninja_forms_admin_all_forms_capabilities', 'ninja_forms_editor_permissions' );
-// To give Editors access to ADD New Forms
-function my_custom_change_ninja_forms_add_new_capabilities_filter( $capabilities ) {
-    $capabilities = "read";
+function penf_viewMenu($capabilities) {
+    $capabilities = "penf_view_menu";
     return $capabilities;
 }
-add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'my_custom_change_ninja_forms_add_new_capabilities_filter' );
-add_filter( 'ninja_forms_admin_add_new_capabilities', 'my_custom_change_ninja_forms_add_new_capabilities_filter' );
+add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'penf_viewMenu' );
 
-function nf_subs_capabilities( $cap ) {
-    return 'read';
+function  penf_viewDashboard($capabilities){
+    $capabilities = "penf_dashboard";
+    return $capabilities;
 }
-add_filter( 'ninja_forms_admin_submissions_capabilities', 'nf_subs_capabilities' );
-add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'nf_subs_capabilities' );
-add_filter( 'ninja_forms_admin_menu_capabilities', 'nf_subs_capabilities' );
+add_filter( 'ninja_forms_admin_all_forms_capabilities', 'penf_viewDashboard' );
+add_filter( 'ninja_forms_admin_extend_capabilities', 'penf_viewDashboard' );
+add_filter( 'ninja_forms_admin_add_new_capabilities', 'penf_viewDashboard' );
+
+
+function penf_viewSubmissions( $cap ) {
+    return 'penf_submissions';
+}
+add_filter( 'ninja_forms_admin_submissions_capabilities', 'penf_viewSubmissions' );
+//add_filter( 'ninja_forms_admin_menu_capabilities', 'nf_subs_capabilities' );
 
 // To give Editors access to the Inport/Export Options
-function custom_ninja_forms_import_export_capabilities_filter( $capabilities ) {
-    $capabilities = "read";
+function penf_importExport( $capabilities ) {
+    $capabilities = "penf_import";
     return $capabilities;
 }
-add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'custom_ninja_forms_import_export_capabilities_filter' );
-add_filter( 'ninja_forms_admin_import_export_capabilities', 'custom_ninja_forms_import_export_capabilities_filter' );
+add_filter( 'ninja_forms_admin_import_export_capabilities', 'penf_importExport' );
 
 // To give Editors access to the the Settings page
-function custom_ninja_forms_settings_capabilities_filter( $capabilities ) {
-    $capabilities = "read";
+
+function penf_editSettings( $capabilities ) {
+    $capabilities = "penf_settings";
     return $capabilities;
 }
-add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'custom_ninja_forms_settings_capabilities_filter' );
-add_filter( 'ninja_forms_admin_settings_capabilities', 'custom_ninja_forms_settings_capabilities_filter' );
+add_filter( 'ninja_forms_admin_settings_capabilities', 'penf_editSettings' );
