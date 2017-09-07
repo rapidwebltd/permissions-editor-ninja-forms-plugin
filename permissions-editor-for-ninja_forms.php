@@ -2,14 +2,14 @@
 /*
 Plugin Name: Permissions Editor for Ninja Forms 
 Plugin URI: http://rapidweb.biz
-Description: Description goes here
+Description: Plugin that enables diffent user permsions for ninja forms.
 Version: 1.0.0
 Author: Rapid Web Ltd
 Author URI: http://rapidweb.biz
 */
 
 function penf_get_caps() {
-    return ['penf_dashboard' => 'dashboard',
+    return ['penf_manage' => 'manage',
             'penf_submissions' => 'submissions',
             'penf_import' => 'import',
             'penf_settings' => 'settings',
@@ -61,13 +61,13 @@ function penf_viewMenu($capabilities) {
 }
 add_filter( 'ninja_forms_admin_parent_menu_capabilities', 'penf_viewMenu' );
 
-function  penf_viewDashboard($capabilities){
-    $capabilities = "penf_dashboard";
+function  penf_manage($capabilities){
+    $capabilities = "penf_manage";
     return $capabilities;
 }
-add_filter( 'ninja_forms_admin_all_forms_capabilities', 'penf_viewDashboard' );
-add_filter( 'ninja_forms_admin_extend_capabilities', 'penf_viewDashboard' );
-add_filter( 'ninja_forms_admin_add_new_capabilities', 'penf_viewDashboard' );
+add_filter( 'ninja_forms_admin_all_forms_capabilities', 'penf_manage' );
+add_filter( 'ninja_forms_admin_extend_capabilities', 'penf_manage' );
+add_filter( 'ninja_forms_admin_add_new_capabilities', 'penf_manage' );
 
 
 function penf_viewSubmissions( $cap ) {
