@@ -9,11 +9,11 @@ Author URI: http://rapidweb.biz
 */
 
 function penf_get_caps() {
-    return ['penf_manage' => 'manage',
-            'penf_submissions' => 'submissions',
-            'penf_import' => 'import',
-            'penf_settings' => 'settings',
-            'penf_view_menu' => 'view menu'];
+    return ['penf_manage' => 'Manage',
+            'penf_submissions' => 'Submissions',
+            'penf_import' => 'Import',
+            'penf_settings' => 'Settings',
+            'penf_view_menu' => 'View Menu'];
 }
 
 function ninja_forms_editor_build_menu()

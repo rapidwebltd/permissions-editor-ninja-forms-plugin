@@ -18,7 +18,7 @@ if ($_POST) {
 
 ?> 
 <form method="post">
-<table>
+<table class="form-table striped">
 <tr>
 <th>&nbsp;</th>
 <?
@@ -34,10 +34,10 @@ foreach($wp_roles->roles as $roleKey => $role)
 {?> 
 <tr> 
 <? 
- echo "<td>".$role['name']."</td>";
+ echo "<th>".$role['name']."</th>";
  foreach(penf_get_caps() as $penfCapabilityKey => $penfCapability)
  {?>
- <td><input type="checkbox" name="<?= $roleKey ?>[]" value="<?= $penfCapabilityKey ?>" <?= (isset($role['capabilities'][$penfCapabilityKey]) && $role['capabilities'][$penfCapabilityKey] == true) ? 'checked' : '' ?>/> 
+ <td><input type="checkbox" class="regular-text" name="<?= $roleKey ?>[]" value="<?= $penfCapabilityKey ?>" <?= (isset($role['capabilities'][$penfCapabilityKey]) && $role['capabilities'][$penfCapabilityKey] == true) ? 'checked' : '' ?>/> 
 <?
  } ?>
  </tr> 
@@ -45,4 +45,6 @@ foreach($wp_roles->roles as $roleKey => $role)
 
 </table>
 
-<input type="submit" value="Save" />
+<p class="submit">
+    <input type="submit" value="Save Changes" class="button button-primary" />
+</p>
