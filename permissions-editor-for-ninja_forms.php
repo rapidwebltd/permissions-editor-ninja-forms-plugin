@@ -11,15 +11,15 @@ Author URI: http://rapidweb.biz
 function penf_get_caps() {
     return ['penf_manage' => 'Manage',
             'penf_submissions' => 'Submissions',
-            'penf_import' => 'Import',
+            'penf_import' => 'Import / Export',
             'penf_settings' => 'Settings',
             'penf_view_menu' => 'View Menu'];
 }
 
 function ninja_forms_editor_build_menu()
 {
-    add_options_page( 'Permisions editor for ninja forms', 
-                     'Permisions editor for ninja forms',
+    add_options_page( 'Permissions Editor for Ninja Forms', 
+                     'Permissions Editor for Ninja Forms',
                       'manage_options', 
                       'penf_role_matrix', 'penf_role_matrix' );
 

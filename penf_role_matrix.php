@@ -17,6 +17,16 @@ if ($_POST) {
 }
 
 ?> 
+<h1>Permissions Editor for Ninja Forms</h1>
+<p>Simply use the matrix below to select the Ninja Forms capabilities that you wish to enable the different user roles to have access to.</p>
+<p>Please note that 'View Menu' is required for any other capabilities and will be completed automatically upon selection of other capabilities.</p>
+<h2>Overview of each capability:</h2>
+<ul>
+    <li><strong>Manage</strong> - enables the user to add new forms, edit/manage existing forms and access the Ninja Forms 'Add-ons'</li>
+    <li><strong>Submissions</strong> - enables the user to view the submissions from form users</li>
+    <li><strong>Import / Export</strong> - provides the user with access to the Import / Export options for Ninja Forms</li>
+    <li><strong>Settings</strong> - provides user with access to the Ninja Forms settings</li>
+</ul>
 <form method="post">
 <table class="form-table striped">
 <tr>
