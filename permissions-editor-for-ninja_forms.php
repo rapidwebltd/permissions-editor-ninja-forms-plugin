@@ -90,3 +90,8 @@ function penf_editSettings( $capabilities ) {
     return $capabilities;
 }
 add_filter( 'ninja_forms_admin_settings_capabilities', 'penf_editSettings' );
+
+
+
+
+
