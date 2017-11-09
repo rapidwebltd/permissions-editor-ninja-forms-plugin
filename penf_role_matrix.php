@@ -19,6 +19,12 @@ if ($_POST) {
             $role->add_cap($penfCapabilityKey);
         } 
     }
+
+    ?>
+    <div class="notice notice-info is-dismissible">
+        <p>Permissions have been updated.</p>
+    </div>
+    <?
 }
 
 ?> 
