@@ -27,9 +27,10 @@ function ninja_forms_editor_build_menu()
 add_action('admin_menu','ninja_forms_editor_build_menu');
 
 function penf_role_matrix() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
+	if (!current_user_can('manage_options'))  {
+		wp_die('You do not have sufficient permissions to access this page.');
+    }
+    
 	echo '<div class="wrap">';
 	require("penf_role_matrix.php");
 	echo '</div>';
@@ -59,7 +60,53 @@ function penf_deactivated_admin_notice() {
     <?php
 }
 
+function penf_capabilities_updated_admin_notice() {
+    ?>
+    <div class="notice notice-info is-dismissible">
+        <p>Permissions have been updated.</p>
+    </div>
+    <?php
+}
+
+function penf_update_capabilities() {
+
+    global $wp_roles;
+
+    if (!current_user_can('manage_options'))  {
+        wp_die('You do not have sufficient permissions to perform this action.');
+    }
+
+    foreach($wp_roles->roles as $roleKey => $role) {
+        $role = get_role($roleKey);
+
+        foreach(penf_get_caps() as $penfCapabilityKey => $penfCapability) {
+            $role->remove_cap($penfCapabilityKey);
+        }
+    }
+
+    foreach($_POST as $roleKey => $penfCapabilityKeys) {
+
+        if ($roleKey=='action') {
+            continue;
+        }
+
+        $role = get_role($roleKey);
+        if(count($penfCapabilityKeys) > 0 )
+        {
+            $role->add_cap("penf_view_menu");
+        }
+        foreach($penfCapabilityKeys as $penfCapabilityKey) {
+            $role->add_cap($penfCapabilityKey);
+        } 
+    }
+
+    wp_redirect(admin_url('options-general.php?page=penf_role_matrix&updated'));
+}
+
+add_action('admin_post_penf_update_capabilities', 'penf_update_capabilities');
+
 function penf_admin_init() {
+
     if (!is_plugin_active('ninja-forms/ninja-forms.php')) {
         deactivate_plugins(plugin_basename(__FILE__));
         add_action('admin_notices', 'penf_deactivated_admin_notice');

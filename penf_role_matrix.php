@@ -1,32 +1,5 @@
 <? 
 global $wp_roles;
-
-if ($_POST) {
-    foreach($wp_roles->roles as $roleKey => $role) {
-        $role = get_role($roleKey);
-
-        foreach(penf_get_caps() as $penfCapabilityKey => $penfCapability) {
-            $role->remove_cap($penfCapabilityKey);
-        }
-    }
-    foreach($_POST as $roleKey => $penfCapabilityKeys) {
-        $role = get_role($roleKey);
-        if(count($penfCapabilityKeys) > 0 )
-        {
-         $role->add_cap("penf_view_menu");
-        }
-        foreach($penfCapabilityKeys as $penfCapabilityKey) {
-            $role->add_cap($penfCapabilityKey);
-        } 
-    }
-
-    ?>
-    <div class="notice notice-info is-dismissible">
-        <p>Permissions have been updated.</p>
-    </div>
-    <?
-}
-
 ?> 
 <h1>Permissions Editor for Ninja Forms</h1>
 <p>Simply use the matrix below to select the Ninja Forms capabilities that you wish to enable the different user roles to have access to.</p>
@@ -38,7 +11,8 @@ if ($_POST) {
     <li><strong>Import / Export</strong> - provides the user with access to the Import / Export options for Ninja Forms</li>
     <li><strong>Settings</strong> - provides user with access to the Ninja Forms settings</li>
 </ul>
-<form method="post">
+<form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+<input type="hidden" name="action" value="penf_update_capabilities"/>
 <table class="form-table striped">
 <tr>
 <th>&nbsp;</th>
