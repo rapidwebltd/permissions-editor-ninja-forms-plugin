@@ -2,7 +2,7 @@
 /*
 Plugin Name: Permissions Editor for Ninja Forms 
 Plugin URI: http://rapidweb.biz
-Description: Plugin that enables diffent user permsions for ninja forms.
+Description: This plugin enables you to select the Ninja Forms capabilities that you wish to enable different WordPress user roles to have access to.
 Version: 1.0.0
 Author: Rapid Web Ltd
 Author URI: http://rapidweb.biz
