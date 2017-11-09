@@ -112,6 +112,10 @@ function penf_admin_init() {
         add_action('admin_notices', 'penf_deactivated_admin_notice');
         return;
     }
+
+    if (!current_user_can('penf_manage')) {
+        remove_submenu_page('ninja-forms', 'ninja-forms');
+    }
 }
 
 add_action('admin_init', 'penf_admin_init');
