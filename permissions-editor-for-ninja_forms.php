@@ -51,8 +51,22 @@ function penf_activation() {
 
 register_activation_hook(__FILE__, 'penf_activation');
 
+function penf_deactivated_admin_notice() {
+    ?>
+    <div class="notice notice-info is-dismissible">
+        <p>The <strong>Permissions Editor for Ninja Forms</strong> plugin has been deactivated, because the Ninja Forms plugin is no longer active.</p>
+    </div>
+    <?php
+}
 
+function penf_admin_init() {
+    if (!is_plugin_active('ninja-forms/ninja-forms.php')) {
+        deactivate_plugins(plugin_basename(__FILE__));
+        add_action('admin_notices', 'penf_deactivated_admin_notice');
+    }
+}
 
+add_action('admin_init', 'penf_admin_init');
 
 
 
