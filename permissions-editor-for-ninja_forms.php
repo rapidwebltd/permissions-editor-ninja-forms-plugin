@@ -63,6 +63,7 @@ function penf_admin_init() {
     if (!is_plugin_active('ninja-forms/ninja-forms.php')) {
         deactivate_plugins(plugin_basename(__FILE__));
         add_action('admin_notices', 'penf_deactivated_admin_notice');
+        return;
     }
 }
 
