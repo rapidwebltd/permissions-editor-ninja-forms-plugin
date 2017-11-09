@@ -37,6 +37,12 @@ function penf_role_matrix() {
 
 
 function penf_activation() {
+
+    if (!is_plugin_active('ninja-forms/ninja-forms.php')) {
+        deactivate_plugins(plugin_basename(__FILE__));
+        wp_die('<p>The <strong>Permissions Editor for Ninja Forms</strong> plugin requires the Ninja Forms plugin. Please install and activate the Ninja Forms plugin and then try again.</p>', 'Ninja Forms is not installed!', ['response' => 200, 'back_link' => true]);
+    }
+
     $role = get_role('administrator');
     foreach(penf_get_caps() as $penfCapabilityKey => $penfCapability) {
         $role->add_cap($penfCapabilityKey);
