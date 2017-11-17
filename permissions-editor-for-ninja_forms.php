@@ -59,14 +59,6 @@ function penf_deactivated_admin_notice() {
     <?php
 }
 
-function penf_capabilities_updated_admin_notice() {
-    ?>
-    <div class="notice notice-info is-dismissible">
-        <p>Permissions have been updated.</p>
-    </div>
-    <?php
-}
-
 function penf_update_capabilities() {
 
     global $wp_roles;
@@ -121,11 +113,6 @@ add_action('admin_init', 'penf_admin_init');
 
 
 
-// To give Editors access to the ALL Forms menu
-function ninja_forms_editor_permissions( $capabilities ) {
-    $capabilities = "read";
-    return $capabilities;
-}
 function penf_viewMenu($capabilities) {
     $capabilities = "penf_view_menu";
     return $capabilities;
