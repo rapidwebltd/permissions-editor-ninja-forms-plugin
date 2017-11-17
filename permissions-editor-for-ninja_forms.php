@@ -15,7 +15,7 @@ function penf_get_caps() {
             'penf_view_menu' => 'View Menu'];
 }
 
-function ninja_forms_editor_build_menu()
+function penf_build_menu()
 {
     add_options_page( 'Permissions Editor for Ninja Forms', 
                      'Permissions Editor for Ninja Forms',
@@ -23,7 +23,7 @@ function ninja_forms_editor_build_menu()
                       'penf_role_matrix', 'penf_role_matrix' );
 
 }
-add_action('admin_menu','ninja_forms_editor_build_menu');
+add_action('admin_menu','penf_build_menu');
 
 function penf_role_matrix() {
 	if (!current_user_can('manage_options'))  {
