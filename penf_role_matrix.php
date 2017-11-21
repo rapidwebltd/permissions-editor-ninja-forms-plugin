@@ -1,15 +1,15 @@
 <? 
 global $wp_roles;
 ?> 
-<h1>Permissions Editor for Ninja Forms</h1>
-<p>Simply use the matrix below to select the Ninja Forms capabilities that you wish to enable the different user roles to have access to.</p>
-<p>Please note that 'View Menu' is required for any other capabilities and will be completed automatically upon selection of other capabilities.</p>
-<h2>Overview of each capability:</h2>
+<h1><?= __('Permissions Editor for Ninja Forms', 'permissions-editor-for-ninja-forms') ?></h1>
+<p><?= __('Simply use the matrix below to select the Ninja Forms capabilities that you wish to enable the different user roles to have access to.', 'permissions-editor-for-ninja-forms') ?></p>
+<p><?= __('Please note that \'View Menu\' is required for any other capabilities and will be completed automatically upon selection of other capabilities.', 'permissions-editor-for-ninja-forms') ?></p>
+<h2><?= __('Overview of each capability:', 'permissions-editor-for-ninja-forms') ?></h2>
 <ul>
-    <li><strong>Manage</strong> - enables the user to add new forms, edit/manage existing forms and access the Ninja Forms 'Add-ons'</li>
-    <li><strong>Submissions</strong> - enables the user to view the submissions from form users</li>
-    <li><strong>Import / Export</strong> - provides the user with access to the Import / Export options for Ninja Forms</li>
-    <li><strong>Settings</strong> - provides user with access to the Ninja Forms settings</li>
+    <li><strong><?= __('Manage', 'permissions-editor-for-ninja-forms') ?></strong> - <?= __('enables the user to add new forms, edit/manage existing forms and access the Ninja Forms \'Add-ons\'', 'permissions-editor-for-ninja-forms') ?></li>
+    <li><strong><?= __('Submissions', 'permissions-editor-for-ninja-forms') ?></strong> - <?= __('enables the user to view the submissions from form users', 'permissions-editor-for-ninja-forms') ?></li>
+    <li><strong><?= __('Import / Export', 'permissions-editor-for-ninja-forms') ?></strong> - <?= __('provides the user with access to the Import / Export options for Ninja Forms', 'permissions-editor-for-ninja-forms') ?></li>
+    <li><strong><?= __('Settings', 'permissions-editor-for-ninja-forms') ?></strong> - <?= __('provides user with access to the Ninja Forms settings', 'permissions-editor-for-ninja-forms') ?></li>
 </ul>
 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 <input type="hidden" name="action" value="penf_update_capabilities"/>
