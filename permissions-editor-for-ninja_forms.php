@@ -2,10 +2,10 @@
 /*
 Plugin Name: Permissions Editor for Ninja Forms 
 Description: This plugin enables you to select the Ninja Forms capabilities that you wish to enable different WordPress user roles to have access to.
-Version: 1.1.0
+Version: 1.1.1
 Author: Rapid Web Ltd
 Author URI: http://rapidweb.biz
-Text Domain: penf
+Text Domain: permissions-editor-for-ninja-forms
 Domain Path: /languages
 */
 
