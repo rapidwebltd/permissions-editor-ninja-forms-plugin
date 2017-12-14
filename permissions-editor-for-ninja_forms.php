@@ -93,6 +93,12 @@ function penf_update_capabilities() {
         }
 
         $role = get_role($roleKey);
+        
+        // Prevents fatal error if attempting to update capability on a role which has been deleted.
+        if (!$role) {
+            continue;
+        }
+
         if(count($penfCapabilityKeys) > 0 )
         {
             $role->add_cap("penf_view_menu");
