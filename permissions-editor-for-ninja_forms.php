@@ -2,7 +2,7 @@
 /*
 Plugin Name: Permissions Editor for Ninja Forms 
 Description: This plugin enables you to select the Ninja Forms capabilities that you wish to enable different WordPress user roles to have access to.
-Version: 1.1.1
+Version: 1.1.2
 Author: Rapid Web Ltd
 Author URI: http://rapidweb.biz
 Text Domain: permissions-editor-for-ninja-forms
@@ -65,7 +65,7 @@ register_activation_hook(__FILE__, 'penf_activation');
 function penf_deactivated_admin_notice() {
     ?>
     <div class="notice notice-info is-dismissible">
-        <?= __('<p>The <strong>Permissions Editor for Ninja Forms</strong> plugin has been deactivated, because the Ninja Forms plugin is no longer active.</p>', 'permissions-editor-for-ninja-forms') ?>
+        <?php echo __('<p>The <strong>Permissions Editor for Ninja Forms</strong> plugin has been deactivated, because the Ninja Forms plugin is no longer active.</p>', 'permissions-editor-for-ninja-forms') ?>
     </div>
     <?php
 }
