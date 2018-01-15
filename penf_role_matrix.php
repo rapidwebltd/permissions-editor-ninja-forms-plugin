@@ -7,7 +7,7 @@ global $wp_roles;
 <h2><?php echo __('Overview of each capability:', 'permissions-editor-for-ninja-forms') ?></h2>
 <ul>
     <li><strong><?php echo __('Manage', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('enables the user to add new forms, edit/manage existing forms and access the Ninja Forms \'Add-ons\'', 'permissions-editor-for-ninja-forms') ?></li>
-    <li><strong><?php echo __('Submissions', 'permissions-editor-for-ninja-forms') ?></strong> - <php? echo __('enables the user to view the submissions from form users', 'permissions-editor-for-ninja-forms') ?></li>
+    <li><strong><?php echo __('Submissions', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('enables the user to view the submissions from form users', 'permissions-editor-for-ninja-forms') ?></li>
     <li><strong><?php echo __('Import / Export', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('provides the user with access to the Import / Export options for Ninja Forms', 'permissions-editor-for-ninja-forms') ?></li>
     <li><strong><?php echo __('Settings', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('provides user with access to the Ninja Forms settings', 'permissions-editor-for-ninja-forms') ?></li>
 </ul>
