@@ -15,11 +15,18 @@ function penf_load_plugin_textdomain() {
 add_action('plugins_loaded', 'penf_load_plugin_textdomain' );
 
 function penf_get_caps() {
-    return ['penf_manage' => __('Manage', 'permissions-editor-for-ninja-forms'),
+    $caps = ['penf_manage' => __('Manage', 'permissions-editor-for-ninja-forms'),
             'penf_submissions' => __('Submissions', 'permissions-editor-for-ninja-forms'),
             'penf_import' => __('Import / Export', 'permissions-editor-for-ninja-forms'),
             'penf_settings' => __('Settings', 'permissions-editor-for-ninja-forms'),
             'penf_view_menu' => __('View Menu', 'permissions-editor-for-ninja-forms')];
+
+    if (is_plugin_active('ninja-forms-excel-export/ninja-forms-excel-export.php')) {
+        $caps['penf_excelExportExtension'] = __('Excel Export Extension', 'permissions-editor-for-ninja-forms');
+    }
+
+    return $caps;
+            
 }
 
 function penf_build_menu()
@@ -151,7 +158,7 @@ function penf_viewSubmissions( $cap ) {
 add_filter( 'ninja_forms_admin_submissions_capabilities', 'penf_viewSubmissions' );
 //add_filter( 'ninja_forms_admin_menu_capabilities', 'nf_subs_capabilities' );
 
-// To give Editors access to the Inport/Export Options
+// To give Editors access to the Import/Export Options
 function penf_importExport( $capabilities ) {
     $capabilities = "penf_import";
     return $capabilities;
@@ -167,6 +174,9 @@ function penf_editSettings( $capabilities ) {
 add_filter( 'ninja_forms_admin_settings_capabilities', 'penf_editSettings' );
 
 
-
-
-
+function penf_excelExportExtension( $capabilities ) {
+    $capabilities = "penf_excelExportExtension";
+    return $capabilities;
+}
+add_filter( 'ninja_forms_admin_excel_export_capabilities', 'penf_excelExportExtension' );
+add_filter( 'ninja_forms_admin_spreadsheet_capabilities', 'penf_excelExportExtension' );

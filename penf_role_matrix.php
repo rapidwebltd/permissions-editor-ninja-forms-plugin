@@ -10,6 +10,10 @@ global $wp_roles;
     <li><strong><?php echo __('Submissions', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('enables the user to view the submissions from form users', 'permissions-editor-for-ninja-forms') ?></li>
     <li><strong><?php echo __('Import / Export', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('provides the user with access to the Import / Export options for Ninja Forms', 'permissions-editor-for-ninja-forms') ?></li>
     <li><strong><?php echo __('Settings', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('provides user with access to the Ninja Forms settings', 'permissions-editor-for-ninja-forms') ?></li>
+    
+    <?php if (is_plugin_active('ninja-forms-excel-export/ninja-forms-excel-export.php')) { ?>
+		<li><strong><?php echo __('Excel Export Extension', 'permissions-editor-for-ninja-forms') ?></strong> - <?php echo __('provides user with access to the Excel Export Extension', 'permissions-editor-for-ninja-forms') ?></li>
+    <?php } ?>
 </ul>
 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
 <input type="hidden" name="action" value="penf_update_capabilities"/>
