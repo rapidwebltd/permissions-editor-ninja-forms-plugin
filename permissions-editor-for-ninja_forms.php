@@ -156,7 +156,7 @@ function penf_viewSubmissions( $cap ) {
     return 'penf_submissions';
 }
 add_filter( 'ninja_forms_admin_submissions_capabilities', 'penf_viewSubmissions' );
-//add_filter( 'ninja_forms_admin_menu_capabilities', 'nf_subs_capabilities' );
+add_filter( 'ninja_forms_admin_menu_capabilities', 'penf_viewSubmissions' );
 
 // To give Editors access to the Import/Export Options
 function penf_importExport( $capabilities ) {
