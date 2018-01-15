@@ -3,7 +3,7 @@ Contributors: RapidWeb
 Tags: ninja forms, permissions, form permissions, user permissions
 Requires at least: 4.1
 Tested up to: 4.9.1
-Stable tag: 1.1.4
+Stable tag: 1.2.0
 License: LGPL-3.0
 License URI: https://opensource.org/licenses/LGPL-3.0
 
